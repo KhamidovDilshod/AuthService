@@ -1,5 +1,4 @@
-﻿using System.Security.Authentication;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using AuthService.Common.Types;
 using Microsoft.AspNetCore.Identity;
 
@@ -11,7 +10,13 @@ public class User : IIdentifiable
         @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
         @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$");
 
-    public Guid Id { get; private set; }
+    private Guid _id;
+    public Guid Id
+    {
+        get => _id;
+        private set => _id = value;
+    }
+
     public string Email { get; private set; }
     public string Role { get; private set; }
     public string PasswordHash { get; private set; }

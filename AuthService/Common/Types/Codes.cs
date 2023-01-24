@@ -11,4 +11,5 @@ public static class Codes
     public static string RefreshTokenNotFound => "refresh_token_not_found";
     public static string RefreshTokenAlreadyRevoked => "refresh_token_already_revoked";
     public static string UserNotFound => "user_not_found";
+    public static string ServiceError => "service_error";
 }

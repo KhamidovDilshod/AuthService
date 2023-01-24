@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using AuthService.Common.Types;
+using AuthService.Extension;
 using Microsoft.IdentityModel.Tokens;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
@@ -77,7 +78,7 @@ public class JwtHandler : IJwtHandler
         {
             AccessToken = token,
             RefreshToken = string.Empty,
-            Expires = expires.ToFileTimeUtc(),
+            Expires = expires.ToTimeStamp(),
             Id = userId,
             Role = role ?? string.Empty,
             Claims = customClaims.ToDictionary(c => c.Type, c => c.Value)
@@ -96,7 +97,7 @@ public class JwtHandler : IJwtHandler
         {
             Subject = jwt.Subject,
             Role = jwt.Claims.SingleOrDefault(x => x.Type == ClaimTypes.Role)?.Value!,
-            Expires = jwt.ValidTo.ToFileTimeUtc(),
+            Expires = jwt.ValidTo.ToTimeStamp(),
             Claims = jwt.Claims.Where(x => !DefaultClaims.Contains(x.Type)).ToDictionary(k => k.Type, v => v.Value)
         };
     }

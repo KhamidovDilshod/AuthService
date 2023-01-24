@@ -5,7 +5,12 @@ namespace AuthService.Domain;
 
 public class RefreshToken : IIdentifiable
 {
-    public Guid Id { get; }
+    private Guid _id;
+    public Guid Id
+    {
+        get => _id;
+        private set => _id = value;
+    }
     public Guid UserId { get; private set; }
     public string Token { get; private set; }
     public DateTime CreatedAt { get; private set; }
