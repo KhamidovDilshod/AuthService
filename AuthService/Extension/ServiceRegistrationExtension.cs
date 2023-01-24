@@ -1,6 +1,13 @@
-﻿using System.Text;
+﻿using System.Reflection;
+using System.Text;
 using AuthService.Common.Authentication;
 using AuthService.Common.Context;
+using AuthService.Common.RabbitMq;
+using AuthService.Domain;
+using Autofac;
+using Autofac.Core;
+using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -30,6 +37,15 @@ public static class ServiceRegistrationExtension
             };
         });
         return services;
+    }
+
+    public static IServiceProvider RegisterServices(this IServiceCollection services)
+    {
+        var builder = new ContainerBuilder();
+        builder.RegisterAssemblyTypes(Assembly.GetEntryAssembly()).AsImplementedInterfaces();
+        builder.RegisterType<PasswordHasher<User>>().As<IPasswordHasher<User>>();
+        builder.AddRabbitMq();
+        return new AutofacServiceProvider(builder.Build());
     }
 
     public static IServiceCollection AddPostgres(this IServiceCollection services, IConfiguration configuration)

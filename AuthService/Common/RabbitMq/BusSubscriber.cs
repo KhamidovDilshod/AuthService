@@ -1,58 +1,90 @@
 ﻿using System.Reflection.Metadata.Ecma335;
+using System.Text;
 using AuthService.Common.Handlers;
 using AuthService.Common.Messages;
 using AuthService.Common.Types;
+using Microsoft.Extensions.Options;
 using OpenTracing;
+using OpenTracing.Tag;
 using Polly;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using RawRabbit;
 using RawRabbit.Common;
+using RawRabbit.Enrichers.MessageContext;
 
 namespace AuthService.Common.RabbitMq;
 
-public class BusSubscriber : IBusSubscriber
+public class BusSubscriber : BackgroundService, IBusSubscriber
 {
-    private readonly ILogger<BusSubscriber> _logger;
     private readonly IBusClient _busClient;
     private readonly IServiceProvider _serviceProvider;
-    private readonly ITracer _tracer;
     private readonly int _retries;
     private readonly int _retryInterval;
 
+    private readonly ILogger<BusSubscriber> _logger;
+    private IConnection? _connection;
+    private IModel? _channel;
+    private string? _queueName;
+
+
     public BusSubscriber(IApplicationBuilder app)
     {
-        _logger = app.ApplicationServices.GetService<ILogger<BusSubscriber>>() ??
-                  throw new AuthException(Codes.ServiceError,
-                      $"Error while getting service :'{nameof(ILogger<BusSubscriber>)}'");
         _serviceProvider = app.ApplicationServices.GetService<IServiceProvider>() ??
-                           throw new AuthException(Codes.ServiceError,
-                               $"Error while getting service :'{nameof(IServiceProvider)}'");
+                           throw new AuthException($"Couldn't get service: '{nameof(IServiceProvider)}'");
+        _logger = _serviceProvider.GetService<ILogger<BusSubscriber>>() ??
+                  throw new AuthException($"Couldn't get service: '{nameof(ILogger<BusSubscriber>)}'");
         _busClient = _serviceProvider.GetService<IBusClient>() ??
-                     throw new AuthException(Codes.ServiceError,
-                         $"Error while getting service :'{nameof(IServiceProvider)}'");
-        _tracer = _serviceProvider.GetService<ITracer>() ??
-                  throw new AuthException(Codes.ServiceError,
-                      $"Error while getting service :'{nameof(IServiceProvider)}'");
-        var options = _serviceProvider.GetService<RabbitMqOptions>();
-        _retries = options?.Retries > 3 ? options.Retries : 3;
-        _retryInterval = options?.RetryInterval > 0 ? options.RetryInterval : 2;
+                     throw new AuthException($"Couldn't get service: '{nameof(IBusClient)}'");
+        var options = _serviceProvider.GetService<RabbitMqOptions>() ??
+                      throw new AuthException($"Couldn't get service: '{nameof(RabbitMqOptions)}'");
+        ConnectToMessageBus(options);
+        _retries = options.Retries >= 0 ? options.Retries : 3;
+        _retryInterval = options.RetryInterval >= 0 ? options.RetryInterval : 2;
+    }
+
+    protected override Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        stoppingToken.ThrowIfCancellationRequested();
+
+        var consumer = new EventingBasicConsumer(_channel);
+
+        consumer.Received += (moduleHandle, eventArgs) =>
+        {
+            Console.WriteLine("Event received");
+            var body = eventArgs.Body;
+            var notificationMessage = Encoding.UTF8.GetString(body.ToArray());
+        };
+        _channel.BasicConsume(queue: _queueName, autoAck: true, consumer: consumer);
+        return Task.CompletedTask;
     }
 
     public IBusSubscriber SubscribeCommand<TCommand>(string @namespace = null, string queueName = null,
         Func<TCommand, AuthException, IRejectedEvent> onError = null)
         where TCommand : ICommand
     {
-        _busClient.SubscribeAsync<TCommand, CorrelationContext>(async (comman, correlationContext) =>
+        _busClient.SubscribeAsync<TCommand, CorrelationContext>(async (command, correlationContext) =>
         {
             var commandHandler = _serviceProvider.GetService<ICommandHandler<TCommand>>();
 
-            return await TryHandleAsync();
+            return await TryHandleAsync(command, correlationContext,
+                () => commandHandler!.HandleAsync(command, correlationContext), onError);
         });
+        return this;
     }
 
     public IBusSubscriber SubscribeEvent<TEvent>(string @namespace = null, string queueName = null,
-        Func<TEvent, AuthException, IRejectedEvent> onError = null) where TEvent : IEvent
+        Func<TEvent, AuthException, IRejectedEvent> onError = null)
+        where TEvent : IEvent
     {
-        throw new NotImplementedException();
+        _busClient.SubscribeAsync<TEvent, CorrelationContext>(async (@event, correlationContext) =>
+        {
+            var eventHandler = _serviceProvider.GetService<IEventHandler<TEvent>>();
+
+            return await TryHandleAsync(@event, correlationContext,
+                () => eventHandler!.HandleAsync(@event, correlationContext), onError);
+        });
+        return this;
     }
 
 
@@ -67,36 +99,59 @@ public class BusSubscriber : IBusSubscriber
 
         return await retryPolicy.ExecuteAsync<Acknowledgement>(async () =>
         {
-            var scope = _tracer
-                .BuildSpan("executing-handler")
-                .AsChildOf(_tracer.ActiveSpan)
-                .StartActive(true);
-
-            using (scope)
+            try
             {
-                var span = scope.Span;
-                try
+                var retryMessage = currentRetry == 0 ? string.Empty : $"Retry: {currentRetry}";
+                var preLogMessage = $"Handling a message: '{messageName}'" +
+                                    $"with correlation id: '{correlationContext.Id}'.{retryMessage}";
+                _logger.LogInformation(preLogMessage);
+                await handle();
+                var postLogMessage = $"Handle a message: '{messageName}' " +
+                                     $"with correlation id: '{correlationContext.Id}'. '{retryMessage}'";
+                _logger.LogInformation(postLogMessage);
+                return new Ack();
+            }
+            catch (Exception exception)
+            {
+                currentRetry++;
+                _logger.LogError(exception, exception.Message);
+                if (exception is AuthException authException && onError != null)
                 {
-                    var retryMessage = currentRetry == 0 ? string.Empty : $"Retry: {currentRetry}";
-                    var preLogMessage = $"Handling a message: '{messageName}'" +
-                                        $"with correlation id: '{correlationContext.Id}'.{retryMessage}";
-                    _logger.LogInformation(preLogMessage);
-                    span.Log(preLogMessage);
-
-                    await handle();
-
-                    var postLogMessage = $"Handle a message: '{messageName}' " +
-                                         $"with correlation id: '{correlationContext.Id}'. '{retryMessage}'";
-                    _logger.LogInformation(postLogMessage);
-                    span.Log(postLogMessage);
-
+                    var rejectedEvent = onError(message, authException);
+                    await _busClient.PublishAsync(rejectedEvent, ctx => ctx.UseMessageContext(correlationContext));
+                    _logger.LogInformation($"Published a rejected event: '{rejectedEvent.GetType().Name}'" +
+                                           $"for the message: '{messageName}' with correlation id : '{correlationContext.Id}'.");
                     return new Ack();
                 }
-                catch (Exception exception)
-                {
-                    throw;
-                }
+
+                throw new AuthException($"Unable to handle a message : '{messageName}'" +
+                                        $"with correlation id: '{correlationContext.Id}', " +
+                                        $"retry {currentRetry - 1}/{_retries}...");
             }
         });
+    }
+
+    private void ConnectionShutdown(object sender, ShutdownEventArgs args) =>
+        Console.WriteLine("Connection closed {0}", DateTime.UtcNow);
+
+    private void ConnectToMessageBus(RabbitMqOptions options)
+    {
+        ConnectionFactory factory = new ConnectionFactory
+        {
+            HostName = options.Host,
+            UserName = options.Username,
+            Password = options.Password
+        };
+        _connection = factory.CreateConnection();
+        _channel = _connection.CreateModel();
+        _queueName = _channel.QueueDeclare().QueueName;
+        _channel.QueueBind(queue: _queueName, exchange: "trigger", routingKey: "");
+        _connection.ConnectionShutdown += ConnectionShutdown!;
+    }
+
+    public override void Dispose()
+    {
+        if (_channel.IsOpen) _connection.Close();
+        base.Dispose();
     }
 }

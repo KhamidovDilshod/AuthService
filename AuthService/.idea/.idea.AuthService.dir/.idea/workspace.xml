@@ -6,36 +6,20 @@
     <projectFile profileName="https">AuthService.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e959de12-a34b-46d7-b366-76c13f8cf0b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Common/Context/AuthContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Handlers/ICommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Postgres/Extensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Postgres/IPostgresRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Postgres/PostgresRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/BusPublisher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/CorrelationContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/IBusPublisher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/IBusSubscriber.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/ICorrelationContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/RabbitMqOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/Home.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/IRefreshTokenRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/RefreshTokenRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="9f380a90-6df1-4569-8d90-4b56e443add2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Common/Handlers/Handler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Handlers/IEventHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Handlers/IHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Messages/MessageNamespaceAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/RabbitMq/Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AuthService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AuthService.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Authentication/JwtHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Authentication/JwtHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Types/Codes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Types/Codes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/RefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/RefreshToken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/RabbitMq/RabbitMqOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/RabbitMqOptions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.AssemblyReference.cache" afterDir="false" />
@@ -50,13 +34,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ee7a65b8dc6449b8a7fe853857ddfda18888/2d/ab2cca60/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3f4f10265f403fb136205e929f916630200/90/08e98013/IBusClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4e070bea846b4d02b5b089f21b3c302531e00/5c/192dad7f/RegistrationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4e070bea846b4d02b5b089f21b3c302531e00/f7/c375ddb6/ContainerBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c235247a8c15453294a60390d3d6c4d53b800/96/27d1a5e6/Policy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3f4f10265f403fb136205e929f916630200/3f/855308b4/Acknowledgement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f3e6a533ee5e4bd7b5d43b51b6c9e9fe16188/5f/f9ba89c2/JwtSecurityToken.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectId" id="2Kilyv8MK549zaQg13KE5J3wYeA" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -76,9 +63,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\User\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\1\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\1\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\1\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -132,18 +119,20 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e959de12-a34b-46d7-b366-76c13f8cf0b7" name="Changes" comment="" />
+      <changelist id="9f380a90-6df1-4569-8d90-4b56e443add2" name="Changes" comment="" />
       <created>1674465541487</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674465541487</updated>
       <workItem from="1674465542841" duration="16778000" />
+      <workItem from="1674537343076" duration="11967000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

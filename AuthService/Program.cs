@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddJwt(builder.Configuration);
 builder.Services.AddPostgres(builder.Configuration).AddPostgresRepository();
+builder.Services.RegisterServices();
 
 
 var app = builder.Build();
