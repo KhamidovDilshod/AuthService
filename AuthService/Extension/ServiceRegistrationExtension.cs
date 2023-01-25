@@ -8,9 +8,6 @@ using AuthService.Common.RabbitMq;
 using AuthService.Domain;
 using AuthService.Repositories;
 using AuthService.Services;
-using Autofac;
-using Autofac.Core;
-using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -21,10 +18,7 @@ public static class ServiceRegistrationExtension
 {
     public static IServiceCollection AddJwt(this IServiceCollection services, IConfiguration configuration)
     {
-        var section = configuration.GetSection("jwt");
         var options = configuration.GetOptions<JwtOptions>("jwt");
-
-        services.Configure<JwtOptions>(section);
         services.AddSingleton(options);
         services.AddSingleton<IJwtHandler, JwtHandler>();
 
@@ -40,6 +34,16 @@ public static class ServiceRegistrationExtension
                 ClockSkew = TimeSpan.Zero
             };
         });
+        return services;
+    }
+
+    public static IServiceCollection ConfigureOptions(this IServiceCollection services, IConfiguration configuration)
+    {
+        var jwtSection = configuration.GetSection("jwt");
+        services.Configure<JwtOptions>(jwtSection);
+        var rabbitMqSection = configuration.GetSection("rabbitMq");
+        services.Configure<RabbitMqOptions>(rabbitMqSection);
+
         return services;
     }
 

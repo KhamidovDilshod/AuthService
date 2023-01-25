@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using AuthService.Common.Messages;
 using AuthService.Common.Types;
+using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -17,29 +18,25 @@ public class BusSubscriber : BackgroundService
     private IConnection? _connection;
     private IModel? _channel;
     private string? _queueName;
+    private readonly RabbitMqOptions _options;
 
-
-    public BusSubscriber(IApplicationBuilder app)
+    public BusSubscriber(IServiceProvider serviceProvider, IOptions<RabbitMqOptions> options,
+        ILogger<BusSubscriber> logger)
     {
-        _serviceProvider = app.ApplicationServices.GetService<IServiceProvider>() ??
-                           throw new AuthException($"Couldn't get service: '{nameof(IServiceProvider)}'");
-        _logger = _serviceProvider.GetService<ILogger<BusSubscriber>>() ??
-                  throw new AuthException($"Couldn't get service: '{nameof(ILogger<BusSubscriber>)}'");
-        // _busClient = _serviceProvider.GetService<IBusClient>() ??
-        //              throw new AuthException($"Couldn't get service: '{nameof(IBusClient)}'");
-        var options = _serviceProvider.GetService<RabbitMqOptions>() ??
-                      throw new AuthException($"Couldn't get service: '{nameof(RabbitMqOptions)}'");
-        ConnectToMessageBus(options);
-        _retries = options.Retries >= 0 ? options.Retries : 3;
-        _retryInterval = options.RetryInterval >= 0 ? options.RetryInterval : 2;
+        _serviceProvider = serviceProvider;
+        _logger = logger;
+        _options = options.Value;
+        ConnectToMessageBus(options.Value);
+        _retries = options.Value.Retries >= 0 ? options.Value.Retries : 3;
+        _retryInterval = options.Value.RetryInterval >= 0 ? options.Value.RetryInterval : 2;
     }
 
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         stoppingToken.ThrowIfCancellationRequested();
-    
+
         var consumer = new EventingBasicConsumer(_channel);
-    
+
         consumer.Received += (moduleHandle, eventArgs) =>
         {
             Console.WriteLine("Event received");
@@ -130,7 +127,8 @@ public class BusSubscriber : BackgroundService
         {
             HostName = options.Host,
             UserName = options.Username,
-            Password = options.Password
+            Password = options.Password,
+            Port = options.Port
         };
         _connection = factory.CreateConnection();
         _channel = _connection.CreateModel();
