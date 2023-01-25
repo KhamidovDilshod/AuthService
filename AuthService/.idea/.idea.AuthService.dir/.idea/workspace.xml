@@ -6,20 +6,36 @@
     <projectFile profileName="https">AuthService.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f380a90-6df1-4569-8d90-4b56e443add2" name="Changes" comment="Some changes">
+    <list default="true" id="9f380a90-6df1-4569-8d90-4b56e443add2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Common/ErrorHandlerMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_2023_10_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_2023_10_58__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/RabbitMq/RabbitMqOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/RabbitMqOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Postgres/PostgresRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Postgres/PostgresRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/RabbitMq/BusPublisher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/BusPublisher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20230123110015_InitialMigrate.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20230125110046_InitialMigrate.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20230123110015_InitialMigrate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20230125110046_InitialMigrate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/AuthService.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/AuthService.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,20 +43,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c2a937d6e0344e5a91c884caff057f3b1c890/bd/afea3edf/ConfiguredTaskAwaitable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4e070bea846b4d02b5b089f21b3c302531e00/5c/192dad7f/RegistrationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4e070bea846b4d02b5b089f21b3c302531e00/f7/c375ddb6/ContainerBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b616a04aee234f559f7397d94bd90dadf880/08/1ac66574/HostingAbstractionsHostExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bdc78cd5621640bc8585fd76787b7e0243400/0e/3d29771f/BrokerUnreachableException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bdc78cd5621640bc8585fd76787b7e0243400/1e/b7af91fc/ConnectionFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bdc78cd5621640bc8585fd76787b7e0243400/ef/8e512a18/AmqpTcpEndpoint.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c235247a8c15453294a60390d3d6c4d53b800/96/27d1a5e6/Policy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ee7a65b8dc6449b8a7fe853857ddfda18888/2d/ab2cca60/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3f4f10265f403fb136205e929f916630200/3f/855308b4/Acknowledgement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3f4f10265f403fb136205e929f916630200/90/08e98013/IBusClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f3e6a533ee5e4bd7b5d43b51b6c9e9fe16188/5f/f9ba89c2/JwtSecurityToken.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/794bcfedceb3c6d957fbddf0e1c9a04afca77f9b5470c6859466cfba35e1ddb1/Task.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bc1273a572298f2789af3ab4754d5a13111eb245c4c3f4fbc239645f967be2/AggregateException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ae1fc9fef226561b2c12f5f46d449b903be36ed79f8c2d070eee18575cee/ConnectionFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/rider/AuthService/Messages/Event/AccessTokenRefreshed.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,22 +63,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\User\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\User\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.AuthService: https">
     <configuration name="AuthService: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/AuthService.csproj" />
@@ -153,6 +162,7 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="RabbitMq configuration finished" />
     <MESSAGE value="Some changes" />
@@ -162,17 +172,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs</url>
-          <line>125</line>
-          <properties documentPath="D:\rider\AuthService\Common\RabbitMq\BusSubscriber.cs" initialLine="125" containingFunctionPresentation="method 'ConnectToMessageBus'">
+          <url>file://$PROJECT_DIR$/Services/IdentityService.cs</url>
+          <line>49</line>
+          <properties documentPath="D:\RiderProjects\AuthService\AuthService\Services\IdentityService.cs" initialLine="49" containingFunctionPresentation="method 'SignInAsync'">
             <startOffsets>
-              <option value="5359" />
+              <option value="1902" />
             </startOffsets>
             <endOffsets>
-              <option value="5580" />
+              <option value="1951" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Domain/User.cs</url>
+          <line>59</line>
+          <properties documentPath="D:\RiderProjects\AuthService\AuthService\Domain\User.cs" initialLine="59" containingFunctionPresentation="method 'ValidatePassword'">
+            <startOffsets>
+              <option value="1777" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1873" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

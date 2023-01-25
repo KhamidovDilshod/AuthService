@@ -19,16 +19,22 @@ public class PostgresRepository<TEntity> : IPostgresRepository<TEntity>
         => await GetAsync(e => e.Id == id);
 
     public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
-        => await _authContext.Set<TEntity>().FirstOrDefaultAsync(predicate) ?? new TEntity();
+        => await _authContext.Set<TEntity>().FirstOrDefaultAsync(predicate);
 
     public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
         => await _authContext.Set<TEntity>().Where(predicate).ToListAsync();
 
     public async Task AddAsync(TEntity entity)
-        => await _authContext.Set<TEntity>().AddAsync(entity);
+    {
+       await _authContext.Set<TEntity>().AddAsync(entity);
+       await _authContext.SaveChangesAsync();
+    }
 
     public void Update(TEntity entity)
-        => _authContext.Set<TEntity>().Update(entity);
+    {
+        _authContext.Set<TEntity>().Update(entity);
+        _authContext.SaveChanges();
+    }
 
     public async Task DeleteAsync(Guid id)
         => _authContext.Set<TEntity>().Remove(await GetAsync(id));

@@ -11,7 +11,7 @@ builder.Services.AddJwt(builder.Configuration);
 
 builder.Services.AddPostgres(builder.Configuration).AddPostgresRepository();
 
-builder.Services.RegisterServices().ConfigureOptions(builder.Configuration);
+builder.Services.RegisterServices().ConfigureOptions(builder.Configuration, builder.Environment);
 
 
 var app = builder.Build();
@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseErrorHandlerMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -34,7 +34,7 @@ public class User : IIdentifiable
             throw new AuthException(Codes.InvalidEmail, $"Invalid email: '{email}'.");
         }
 
-        if (!Domain.Role.IsValid(role))
+        if (Domain.Role.IsValid(role))
         {
             throw new AuthException(Codes.InvalidRole, $"Invalid role :'{role}.'");
         }
@@ -57,5 +57,5 @@ public class User : IIdentifiable
     }
 
     public bool ValidatePassword(string password, IPasswordHasher<User> passwordHasher)
-        => passwordHasher.VerifyHashedPassword(this, PasswordHash, password) == PasswordVerificationResult.Failed;
+        => passwordHasher.VerifyHashedPassword(this, PasswordHash, password) == PasswordVerificationResult.Success;
 }

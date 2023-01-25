@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using AuthService.Common;
 using AuthService.Common.Authentication;
 using AuthService.Common.Context;
 using AuthService.Common.Handlers;
@@ -37,15 +38,20 @@ public static class ServiceRegistrationExtension
         return services;
     }
 
-    public static IServiceCollection ConfigureOptions(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection ConfigureOptions(this IServiceCollection services, IConfiguration configuration,
+        IWebHostEnvironment environment)
     {
         var jwtSection = configuration.GetSection("jwt");
         services.Configure<JwtOptions>(jwtSection);
-        var rabbitMqSection = configuration.GetSection("rabbitMq");
+
+        var rabbitMqSection = configuration.GetSection(environment.IsDevelopment() ? "rabbitMqDev" : "rabbitmq");
         services.Configure<RabbitMqOptions>(rabbitMqSection);
 
         return services;
     }
+
+    public static IApplicationBuilder UseErrorHandlerMiddleware(this IApplicationBuilder app)
+        => app.UseMiddleware<ErrorHandlerMiddleware>();
 
     public static IServiceCollection RegisterServices(this IServiceCollection services)
     {

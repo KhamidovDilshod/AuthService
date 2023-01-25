@@ -1,11 +1,8 @@
 ﻿using System.Text;
 using AuthService.Common.Messages;
 using AuthService.Common.Types;
-using AuthService.Messages.Commands;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
-using RawRabbit;
-using RawRabbit.Enrichers.MessageContext;
 
 namespace AuthService.Common.RabbitMq;
 
@@ -30,7 +27,7 @@ public class BusPublisher : IBusPublisher
         _connection = factory.CreateConnection();
         _channel = _connection.CreateModel();
 
-        _channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
+        // _channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
         _logger.LogInformation($"Connected to Message Bus: '{DateTime.UtcNow}'");
         _connection.ConnectionShutdown += ConnectionShutdown!;
     }
