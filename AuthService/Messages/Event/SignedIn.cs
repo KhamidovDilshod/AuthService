@@ -5,11 +5,13 @@ namespace AuthService.Messages.Event;
 
 public class SignedIn:IEvent
 {
+    public string Message { get; set; }
     public Guid UserId { get; }
     
     [JsonConstructor]
-    public SignedIn(Guid userId)
+    public SignedIn(Guid userId, string message)
     {
         UserId = userId;
+        Message = message;
     }
 }

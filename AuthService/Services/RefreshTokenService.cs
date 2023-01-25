@@ -65,7 +65,7 @@ public class RefreshTokenService : IRefreshTokenService
             var claims = await _claimsProvider.GetAsync(user.Id);
             var jwt = _jwtHandler.CreateToken(user.Id.ToString("N"), user.Role, claims);
             jwt.RefreshToken = refreshToken.Token;
-            await _busPublisher.PublishAsync(new AccessTokenRefreshed(user.Id), CorrelationContext.Empty);
+            await _busPublisher.PublishAsync(new AccessTokenRefreshed(user.Id,""), CorrelationContext.Empty);
             
             return jwt;
         }
@@ -80,6 +80,6 @@ public class RefreshTokenService : IRefreshTokenService
             }
             refreshToken.Revoke();
             _refreshTokenRepository.UpdateAsync(refreshToken);
-            await _busPublisher.PublishAsync(new RefreshTokenRevoked(refreshToken.UserId), CorrelationContext.Empty);
+            await _busPublisher.PublishAsync(new RefreshTokenRevoked(refreshToken.UserId,""), CorrelationContext.Empty);
         }
 }

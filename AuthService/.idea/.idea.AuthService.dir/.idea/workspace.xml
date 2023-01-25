@@ -7,34 +7,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f380a90-6df1-4569-8d90-4b56e443add2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Common/Authentication/AuthAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Authentication/JwtAuthAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/BaseController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/IdentityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_3_26_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_3_26_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_4_05_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_4_05_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Postgres/PostgresRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Postgres/PostgresRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Messages/IMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Messages/IMessage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/RabbitMq/BusPublisher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/BusPublisher.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/BusSubscriber.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/RabbitMq/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/RefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/RefreshToken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Folder.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Folder.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IIdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Commands/ChangePassword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Commands/ChangePassword.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Commands/RefreshAccessToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Commands/RefreshAccessToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Commands/RevokeAccessToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Commands/RevokeAccessToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Commands/RevokeRefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Commands/RevokeRefreshToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Commands/SignIn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Commands/SignIn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Commands/SignUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Commands/SignUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/AccessTokenRefreshed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/AccessTokenRefreshed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/AccessTokenRevoked.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/AccessTokenRevoked.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/PasswordChanged.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/PasswordChanged.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/RefreshAccessTokenRejected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/RefreshAccessTokenRejected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/RefreshTokenRevoked.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/RefreshTokenRevoked.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/RevokeAccessTokenRejected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/RevokeAccessTokenRejected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/RevokeRefreshTokenRejected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/RevokeRefreshTokenRejected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/SignInRejected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/SignInRejected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/SignUpRejected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/SignUpRejected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/SignedIn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/SignedIn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Event/SignedUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Messages/Event/SignedUp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IdentityService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/RefreshTokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/RefreshTokenService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.pdb" afterDir="false" />
@@ -51,10 +57,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ee7a65b8dc6449b8a7fe853857ddfda18888/2d/ab2cca60/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4e070bea846b4d02b5b089f21b3c302531e00/5c/192dad7f/RegistrationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4e070bea846b4d02b5b089f21b3c302531e00/f7/c375ddb6/ContainerBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c235247a8c15453294a60390d3d6c4d53b800/96/27d1a5e6/Policy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3f4f10265f403fb136205e929f916630200/3f/855308b4/Acknowledgement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3f4f10265f403fb136205e929f916630200/90/08e98013/IBusClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f3e6a533ee5e4bd7b5d43b51b6c9e9fe16188/5f/f9ba89c2/JwtSecurityToken.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/794bcfedceb3c6d957fbddf0e1c9a04afca77f9b5470c6859466cfba35e1ddb1/Task.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,22 +77,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\User\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\User\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.AuthService: https">
     <configuration name="AuthService: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/AuthService.csproj" />

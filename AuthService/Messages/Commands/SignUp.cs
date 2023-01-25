@@ -11,11 +11,16 @@ public class SignUp : ICommand
     public string Role { get; }
     
     [JsonConstructor]
-    public SignUp(string role, string password, string email, Guid id)
+    public SignUp(string role, string password, string email, Guid id, Guid userId, string message)
     {
         Role = role;
         Password = password;
         Email = email;
         Id = id;
+        UserId = userId;
+        Message = message;
     }
+
+    public string Message { get; set; }
+    public Guid UserId { get; }
 }

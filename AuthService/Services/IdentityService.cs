@@ -42,7 +42,7 @@ public class IdentityService : IIdentityService
         user = new User(id, email, role);
         user.SetPassword(password, _passwordHasher);
         await _userRepository.AddAsync(user);
-        await _busPublisher.PublishAsync(new SignedUp(id, email, role), CorrelationContext.Empty);
+        await _busPublisher.PublishAsync(new SignedUp(id, email, role, ""), CorrelationContext.Empty);
     }
 
     public async Task<JsonWebToken> SignInAsync(string email, string password)
@@ -72,6 +72,6 @@ public class IdentityService : IIdentityService
 
         user.SetPassword(newPassword, _passwordHasher);
         _userRepository.UpdateAsync(user);
-        await _busPublisher.PublishAsync(new PasswordChanged(userId), CorrelationContext.Empty);
+        await _busPublisher.PublishAsync(new PasswordChanged(userId, ""), CorrelationContext.Empty);
     }
 }

@@ -52,12 +52,13 @@ public static class ServiceRegistrationExtension
         services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
         services.AddScoped<IPasswordHasher<RefreshToken>, PasswordHasher<RefreshToken>>();
         services.AddScoped<IClaimsProvider, ClaimsProvider>();
+        services.AddScoped<IBusPublisher, BusPublisher>();
+        services.AddScoped<IHandler, Handler>();
+
+        services.AddHostedService<BusSubscriber>();
 
         // services.AddScoped(typeof(IEventHandler<>));
         // services.AddScoped(typeof(ICommandHandler<>));
-        services.AddScoped<IHandler, Handler>();
-        services.AddScoped<IBusPublisher, BusPublisher>();
-        services.AddHostedService<BusSubscriber>();
         // services.AddScoped<IBusSubscriber, BusSubscriber>();
 
         // var builder = new ContainerBuilder();

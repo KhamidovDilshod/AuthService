@@ -9,9 +9,14 @@ public class SignIn:ICommand
     public string Password { get; }
     
     [JsonConstructor]
-    public SignIn(string email, string password)
+    public SignIn(string email, string password, string message, Guid userId)
     {
         Email = email;
         Password = password;
+        Message = message;
+        UserId = userId;
     }
+
+    public string Message { get; set; }
+    public Guid UserId { get; }
 }

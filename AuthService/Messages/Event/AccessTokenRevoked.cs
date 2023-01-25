@@ -6,11 +6,13 @@ namespace AuthService.Messages.Event;
 
 public class AccessTokenRevoked:IEvent
 {
+    public string Message { get; set; }
     public Guid UserId { get; }
     
     [JsonConstructor]
-    public AccessTokenRevoked(Guid userId)
+    public AccessTokenRevoked(Guid userId, string message)
     {
         UserId = userId;
+        Message = message;
     }
 }

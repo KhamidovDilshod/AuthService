@@ -8,8 +8,13 @@ public class RefreshAccessToken : ICommand
     public string Token { get; }
 
     [JsonConstructor]
-    public RefreshAccessToken(string token)
+    public RefreshAccessToken(string token, Guid userId, string message)
     {
         Token = token;
+        UserId = userId;
+        Message = message;
     }
+
+    public string Message { get; set; }
+    public Guid UserId { get; }
 }

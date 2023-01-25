@@ -9,7 +9,6 @@ namespace AuthService.Common.RabbitMq;
 
 public class BusSubscriber : BackgroundService
 {
-    // private readonly IBusClient _busClient;
     private readonly IServiceProvider _serviceProvider;
     private readonly int _retries;
     private readonly int _retryInterval;

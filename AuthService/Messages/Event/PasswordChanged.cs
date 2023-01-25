@@ -6,10 +6,12 @@ namespace AuthService.Messages.Event;
 
 public class PasswordChanged:IEvent
 {
+    public string Message { get; set; }
     public Guid UserId { get; }
     [JsonConstructor]
-    public PasswordChanged(Guid userId)
+    public PasswordChanged(Guid userId, string message)
     {
         UserId = userId;
+        Message = message;
     }
 }
