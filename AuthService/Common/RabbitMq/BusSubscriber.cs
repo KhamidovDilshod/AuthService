@@ -1,23 +1,15 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using AuthService.Common.Handlers;
+﻿using System.Text;
 using AuthService.Common.Messages;
 using AuthService.Common.Types;
-using Microsoft.Extensions.Options;
-using OpenTracing;
-using OpenTracing.Tag;
-using Polly;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using RawRabbit;
-using RawRabbit.Common;
-using RawRabbit.Enrichers.MessageContext;
+
 
 namespace AuthService.Common.RabbitMq;
 
-public class BusSubscriber : BackgroundService, IBusSubscriber
+public class BusSubscriber : BackgroundService
 {
-    private readonly IBusClient _busClient;
+    // private readonly IBusClient _busClient;
     private readonly IServiceProvider _serviceProvider;
     private readonly int _retries;
     private readonly int _retryInterval;
@@ -34,8 +26,8 @@ public class BusSubscriber : BackgroundService, IBusSubscriber
                            throw new AuthException($"Couldn't get service: '{nameof(IServiceProvider)}'");
         _logger = _serviceProvider.GetService<ILogger<BusSubscriber>>() ??
                   throw new AuthException($"Couldn't get service: '{nameof(ILogger<BusSubscriber>)}'");
-        _busClient = _serviceProvider.GetService<IBusClient>() ??
-                     throw new AuthException($"Couldn't get service: '{nameof(IBusClient)}'");
+        // _busClient = _serviceProvider.GetService<IBusClient>() ??
+        //              throw new AuthException($"Couldn't get service: '{nameof(IBusClient)}'");
         var options = _serviceProvider.GetService<RabbitMqOptions>() ??
                       throw new AuthException($"Couldn't get service: '{nameof(RabbitMqOptions)}'");
         ConnectToMessageBus(options);
@@ -46,9 +38,9 @@ public class BusSubscriber : BackgroundService, IBusSubscriber
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         stoppingToken.ThrowIfCancellationRequested();
-
+    
         var consumer = new EventingBasicConsumer(_channel);
-
+    
         consumer.Received += (moduleHandle, eventArgs) =>
         {
             Console.WriteLine("Event received");
@@ -59,76 +51,75 @@ public class BusSubscriber : BackgroundService, IBusSubscriber
         return Task.CompletedTask;
     }
 
-    public IBusSubscriber SubscribeCommand<TCommand>(string @namespace = null, string queueName = null,
+    public BackgroundService SubscribeCommand<TCommand>(string @namespace = null, string queueName = null,
         Func<TCommand, AuthException, IRejectedEvent> onError = null)
         where TCommand : ICommand
     {
-        _busClient.SubscribeAsync<TCommand, CorrelationContext>(async (command, correlationContext) =>
-        {
-            var commandHandler = _serviceProvider.GetService<ICommandHandler<TCommand>>();
-
-            return await TryHandleAsync(command, correlationContext,
-                () => commandHandler!.HandleAsync(command, correlationContext), onError);
-        });
+        // _busClient.SubscribeAsync<TCommand, CorrelationContext>(async (command, correlationContext) =>
+        // {
+        //     var commandHandler = _serviceProvider.GetService<ICommandHandler<TCommand>>();
+        //
+        //     return await TryHandleAsync(command, correlationContext,
+        //         () => commandHandler!.HandleAsync(command, correlationContext), onError);
+        // });
         return this;
     }
 
-    public IBusSubscriber SubscribeEvent<TEvent>(string @namespace = null, string queueName = null,
-        Func<TEvent, AuthException, IRejectedEvent> onError = null)
+    public BackgroundService SubscribeEvent<TEvent>(string @namespace = null, string queueName = null,
+        Func<TEvent, AuthException, IRejectedEvent> onError = null!)
         where TEvent : IEvent
     {
-        _busClient.SubscribeAsync<TEvent, CorrelationContext>(async (@event, correlationContext) =>
-        {
-            var eventHandler = _serviceProvider.GetService<IEventHandler<TEvent>>();
-
-            return await TryHandleAsync(@event, correlationContext,
-                () => eventHandler!.HandleAsync(@event, correlationContext), onError);
-        });
+        // _busClient.SubscribeAsync<TEvent, CorrelationContext>(async (@event, correlationContext) =>
+        // {
+        //     var eventHandler = _serviceProvider.GetService<IEventHandler<TEvent>>();
+        //
+        //     return await TryHandleAsync(@event, correlationContext,
+        //         () => eventHandler!.HandleAsync(@event, correlationContext), onError);
+        // });
         return this;
     }
 
 
-    private async Task<Acknowledgement> TryHandleAsync<TMessage>(TMessage message,
+    private async Task TryHandleAsync<TMessage>(TMessage message,
         CorrelationContext correlationContext,
         Func<Task> handle, Func<TMessage, AuthException, IRejectedEvent> onError = null!)
     {
         var currentRetry = 0;
-        var retryPolicy = Policy.Handle<Exception>()
-            .WaitAndRetryAsync(_retries, i => TimeSpan.FromSeconds(_retryInterval));
         var messageName = message?.GetType().Name;
 
-        return await retryPolicy.ExecuteAsync<Acknowledgement>(async () =>
-        {
-            try
-            {
-                var retryMessage = currentRetry == 0 ? string.Empty : $"Retry: {currentRetry}";
-                var preLogMessage = $"Handling a message: '{messageName}'" +
-                                    $"with correlation id: '{correlationContext.Id}'.{retryMessage}";
-                _logger.LogInformation(preLogMessage);
-                await handle();
-                var postLogMessage = $"Handle a message: '{messageName}' " +
-                                     $"with correlation id: '{correlationContext.Id}'. '{retryMessage}'";
-                _logger.LogInformation(postLogMessage);
-                return new Ack();
-            }
-            catch (Exception exception)
-            {
-                currentRetry++;
-                _logger.LogError(exception, exception.Message);
-                if (exception is AuthException authException && onError != null)
-                {
-                    var rejectedEvent = onError(message, authException);
-                    await _busClient.PublishAsync(rejectedEvent, ctx => ctx.UseMessageContext(correlationContext));
-                    _logger.LogInformation($"Published a rejected event: '{rejectedEvent.GetType().Name}'" +
-                                           $"for the message: '{messageName}' with correlation id : '{correlationContext.Id}'.");
-                    return new Ack();
-                }
-
-                throw new AuthException($"Unable to handle a message : '{messageName}'" +
-                                        $"with correlation id: '{correlationContext.Id}', " +
-                                        $"retry {currentRetry - 1}/{_retries}...");
-            }
-        });
+        // return await retryPolicy.ExecuteAsync<Acknowledgement>(async () =>
+        // {
+        //     try
+        //     {
+        //         var retryMessage = currentRetry == 0 ? string.Empty : $"Retry: {currentRetry}";
+        //         var preLogMessage = $"Handling a message: '{messageName}'" +
+        //                             $"with correlation id: '{correlationContext.Id}'.{retryMessage}";
+        //         _logger.LogInformation(preLogMessage);
+        //         await handle();
+        //         var postLogMessage = $"Handle a message: '{messageName}' " +
+        //                              $"with correlation id: '{correlationContext.Id}'. '{retryMessage}'";
+        //         _logger.LogInformation(postLogMessage);
+        //         return new Ack();
+        //     }
+        //     catch (Exception exception)
+        //     {
+        //         currentRetry++;
+        //         _logger.LogError(exception, exception.Message);
+        //         if (exception is AuthException authException && onError != null)
+        //         {
+        //             var rejectedEvent = onError(message, authException);
+        //             await _busClient.PublishAsync(rejectedEvent, ctx => ctx.UseMessageContext(correlationContext));
+        //             _logger.LogInformation($"Published a rejected event: '{rejectedEvent.GetType().Name}'" +
+        //                                    $"for the message: '{messageName}' with correlation id : '{correlationContext.Id}'.");
+        //             return new Ack();
+        //         }
+        //
+        //         throw new AuthException($"Unable to handle a message : '{messageName}'" +
+        //                                 $"with correlation id: '{correlationContext.Id}', " +
+        //                                 $"retry {currentRetry - 1}/{_retries}...");
+        //     }
+        // });
+        await Task.CompletedTask;
     }
 
     private void ConnectionShutdown(object sender, ShutdownEventArgs args) =>

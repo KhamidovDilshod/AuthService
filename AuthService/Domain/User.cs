@@ -23,7 +23,7 @@ public class User : IIdentifiable
     public DateTime CreatedAt { get; private set; }
     public DateTime UpdatedAt { get; private set; }
 
-    protected User()
+    public User()
     {
     }
 

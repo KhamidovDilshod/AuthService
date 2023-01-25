@@ -15,8 +15,8 @@ namespace AuthService.Common.RabbitMq;
 
 public static class Extensions
 {
-    public static IBusSubscriber UseRabbitMq(this IApplicationBuilder app)
-        => new BusSubscriber(app);
+    // public static IBusSubscriber UseRabbitMq(this IApplicationBuilder app)
+    //     => new BusSubscriber(app);
 
     public static void AddRabbitMq(this ContainerBuilder builder)
     {

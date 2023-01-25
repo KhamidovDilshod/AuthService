@@ -1,9 +1,13 @@
-﻿using System.Reflection;
+﻿using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using AuthService.Common.Authentication;
 using AuthService.Common.Context;
+using AuthService.Common.Handlers;
 using AuthService.Common.RabbitMq;
 using AuthService.Domain;
+using AuthService.Repositories;
+using AuthService.Services;
 using Autofac;
 using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
@@ -39,13 +43,29 @@ public static class ServiceRegistrationExtension
         return services;
     }
 
-    public static IServiceProvider RegisterServices(this IServiceCollection services)
+    public static IServiceCollection RegisterServices(this IServiceCollection services)
     {
-        var builder = new ContainerBuilder();
-        builder.RegisterAssemblyTypes(Assembly.GetEntryAssembly()).AsImplementedInterfaces();
-        builder.RegisterType<PasswordHasher<User>>().As<IPasswordHasher<User>>();
-        builder.AddRabbitMq();
-        return new AutofacServiceProvider(builder.Build());
+        services.AddScoped<IIdentityService, IdentityService>();
+        services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+        services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+        services.AddScoped<IPasswordHasher<RefreshToken>, PasswordHasher<RefreshToken>>();
+        services.AddScoped<IClaimsProvider, ClaimsProvider>();
+
+        // services.AddScoped(typeof(IEventHandler<>));
+        // services.AddScoped(typeof(ICommandHandler<>));
+        services.AddScoped<IHandler, Handler>();
+        services.AddScoped<IBusPublisher, BusPublisher>();
+        services.AddHostedService<BusSubscriber>();
+        // services.AddScoped<IBusSubscriber, BusSubscriber>();
+
+        // var builder = new ContainerBuilder();
+        // builder.RegisterAssemblyTypes(Assembly.GetEntryAssembly()!).AsImplementedInterfaces();
+        // // builder.RegisterType<PasswordHasher<User>>().As<IPasswordHasher<User>>();
+        // // builder.AddRabbitMq();
+        // return new AutofacServiceProvider(builder.Build());
+        return services;
     }
 
     public static IServiceCollection AddPostgres(this IServiceCollection services, IConfiguration configuration)
@@ -71,6 +91,35 @@ public static class ServiceRegistrationExtension
         var expectedDate = dateTime.Subtract(new TimeSpan(centuryBegin.Ticks));
 
         return expectedDate.Ticks / 1000;
+    }
+
+    public static T Bind<T>(this T model, Expression<Func<T, object>> expression, object value)
+        => model.Bind<T, object>(expression, value);
+
+    public static T BindId<T>(this T model, Expression<Func<T, Guid>> expression)
+        => model.Bind<T, Guid>(expression, Guid.NewGuid());
+
+    private static TModel Bind<TModel, TProperty>(this TModel model, Expression<Func<TModel, TProperty>> expression,
+        object value)
+    {
+        var memberExpression = expression.Body as MemberExpression;
+        if (memberExpression == null)
+        {
+            memberExpression = ((UnaryExpression)expression.Body).Operand as MemberExpression;
+        }
+
+        var propertyName = memberExpression.Member.Name.ToLowerInvariant();
+        var modelType = model.GetType();
+        var field = modelType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+            .SingleOrDefault(x => x.Name.ToLowerInvariant().StartsWith($"<{propertyName}>"));
+        if (field == null)
+        {
+            return model;
+        }
+
+        field.SetValue(model, value);
+
+        return model;
     }
 
     public static string Underscore(this string value)

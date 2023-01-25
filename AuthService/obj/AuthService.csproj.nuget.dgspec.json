@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\rider\\AuthService\\AuthService.csproj": {}
+    "D:\\RiderProjects\\AuthService\\AuthService\\AuthService.csproj": {}
   },
   "projects": {
-    "D:\\rider\\AuthService\\AuthService.csproj": {
+    "D:\\RiderProjects\\AuthService\\AuthService\\AuthService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\rider\\AuthService\\AuthService.csproj",
+        "projectUniqueName": "D:\\RiderProjects\\AuthService\\AuthService\\AuthService.csproj",
         "projectName": "AuthService",
-        "projectPath": "D:\\rider\\AuthService\\AuthService.csproj",
-        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "D:\\rider\\AuthService\\obj\\",
+        "projectPath": "D:\\RiderProjects\\AuthService\\AuthService\\AuthService.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\RiderProjects\\AuthService\\AuthService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -152,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\1\\.dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

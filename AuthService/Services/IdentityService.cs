@@ -45,7 +45,7 @@ public class IdentityService : IIdentityService
         await _busPublisher.PublishAsync(new SignedUp(id, email, role), CorrelationContext.Empty);
     }
 
-    public async Task<JsonWebToken> SIgnInAsync(string email, string password)
+    public async Task<JsonWebToken> SignInAsync(string email, string password)
     {
         var user = await _userRepository.GetAsync(email);
         if (user == null || !user.ValidatePassword(password, _passwordHasher))

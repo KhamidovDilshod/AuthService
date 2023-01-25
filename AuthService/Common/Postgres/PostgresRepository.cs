@@ -5,15 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuthService.Common.Postgres;
 
-public class PostgresRepository<TEntity> : IPostgresRepository<TEntity> where TEntity : class, IIdentifiable, new()
+public class PostgresRepository<TEntity> : IPostgresRepository<TEntity>
+    where TEntity : class, IIdentifiable, new()
 {
     private readonly AuthContext _authContext;
-    private DbSet<TEntity> _table;
 
     public PostgresRepository(AuthContext authContext)
     {
         _authContext = authContext;
-        _table = _authContext.Set<TEntity>();
     }
 
     public async Task<TEntity> GetAsync(Guid id)

@@ -17,7 +17,7 @@ public class RefreshToken : IIdentifiable
     public DateTime? RevokedAt { get; private set; }
     public bool Revoked => RevokedAt.HasValue;
 
-    protected RefreshToken()
+    public RefreshToken()
     {
     }
 
