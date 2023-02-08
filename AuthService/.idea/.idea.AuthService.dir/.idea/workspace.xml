@@ -7,34 +7,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f380a90-6df1-4569-8d90-4b56e443add2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Common/ErrorHandlerMiddleware.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_2023_10_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_2023_10_58__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Auth.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AuthService.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_3_26_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_3_26_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_4_05_PM_[Changes]/AuthService.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_4_05_PM_[Changes]/AuthService.csproj.AssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_4_05_PM_[Changes]/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_4_05_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_24_2023_4_05_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_1_12_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_1_12_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/AuthService.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/AuthService.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/AuthService.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/AuthService.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/AuthService.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/AuthService1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/AuthService1.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_2023_3_19_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_2023_10_58_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_2023_10_58__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AuthService.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Postgres/PostgresRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Postgres/PostgresRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/RabbitMq/BusPublisher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/RabbitMq/BusPublisher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Extension/ServiceRegistrationExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230123110015_InitialMigrate.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20230125110046_InitialMigrate.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20230123110015_InitialMigrate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20230125110046_InitialMigrate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/AuthService.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/AuthService.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/AuthService.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/AuthService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/AuthService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/AuthService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,23 +59,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\User\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\User\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\User\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.AuthService: https">
     <configuration name="AuthService: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/AuthService.csproj" />
@@ -138,6 +134,7 @@
       <workItem from="1674465542841" duration="16778000" />
       <workItem from="1674537343076" duration="13736000" />
       <workItem from="1674559315594" duration="8474000" />
+      <workItem from="1675837438515" duration="139000" />
     </task>
     <task id="LOCAL-00001" summary="RabbitMq configuration finished">
       <created>1674555976418</created>
